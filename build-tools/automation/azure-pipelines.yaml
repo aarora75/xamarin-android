@@ -231,9 +231,6 @@ stages:
     - checkout: self
       submodules: recursive
 
-    - template: environment/win/vs.v1.yml@yaml        # VS installations and versions
-    - template: environment/win/msbuild.v1.yml@yaml   # MSBuild locations
-
     - template: yaml-templates\kill-processes.yaml
 
     - template: yaml-templates\clean.yaml
@@ -273,6 +270,8 @@ stages:
         Remove-Item "${env:TEMP}\$log"
       displayName: downgrade XA to stable
       ignoreLASTEXITCODE: true
+
+    - template: environment/win/vs-msbuild.v1.yml@yaml   # VS installations with associated MSBuild locations
 
     - task: MSBuild@1
       displayName: msbuild Xamarin.Android /t:Prepare
