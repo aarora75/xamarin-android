@@ -230,13 +230,6 @@ stages:
     timeoutInMinutes: 360
     cancelTimeoutInMinutes: 5
     steps:
-    - checkout: yaml                                     # Ensure we have all auxillary script files such as Write-MSBuildPath.ps1 needed by the yaml templates
-      path: yaml-templates
-      fetchDepth: 1
-      submodules: false
-      persistCredentials: false
-      clean: false
-
     - checkout: self
       submodules: recursive
 
