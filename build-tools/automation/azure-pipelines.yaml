@@ -224,9 +224,7 @@ stages:
   jobs:
   - job: win_build_test
     displayName: Build and Smoke Test
-    #pool: $(VSEngWinVS2019)
-    pool:
-      vmImage: windows-2019            # UNDONE: Test change against hosted pool to evaluate potential impact on on-prem agents (w/o affecting them)
+    pool: $(VSEngWinVS2019)
     timeoutInMinutes: 360
     cancelTimeoutInMinutes: 5
     steps:
